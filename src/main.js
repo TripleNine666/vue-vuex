@@ -4,12 +4,14 @@ import { createStore } from "vuex";
 import App from "./App.vue";
 
 const counterModule = {
+  namespaced: true,
   state() {
     return { counter: 0 };
   },
   mutations: {
     increment(state) {
       state.counter = state.counter + 2;
+      console.log(state);
     },
     increase(state, payload) {
       state.counter = state.counter + payload.value;
@@ -45,7 +47,7 @@ const counterModule = {
 
 const store = createStore({
   modules: {
-    number: counterModule,
+    numbers: counterModule,
   },
   state() {
     return {
